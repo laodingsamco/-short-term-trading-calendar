@@ -18,26 +18,10 @@ monday = today - timedelta(days=today.weekday())
 
 c = Calendar()
 
-# Tesla
-c.events.add(create_event(
-    "Tesla 本周做空观察点",
-    "Q1交付后走势弱于市场，ASP 拖累整体表现，周内反弹乏力可寻找做空窗口。",
-    monday + timedelta(days=1)
-))
-
-# Intel
-c.events.add(create_event(
-    "Intel 本周反弹顶部预警",
-    "AI 噱头兑现短期利好后，反弹动能弱，警惕 $39.80 压力位回落。",
-    monday + timedelta(days=2)
-))
-
-# 宏观预警
-c.events.add(create_event(
-    "初请 + 地缘风险监控日",
-    "周四关注地缘政治及VIX波动可能带来的短期空头机会。",
-    monday + timedelta(days=3)
-))
+# 本周事件示例
+c.events.add(create_event("Tesla 本周关键压力位测试", "观察是否反弹至 170 并回落", monday + timedelta(days=1)))
+c.events.add(create_event("Intel 技术回踩日", "观察 39.80 压力位情况", monday + timedelta(days=2)))
+c.events.add(create_event("宏观风险日", "初请+地缘政治干扰波动", monday + timedelta(days=3)))
 
 with open("short_term_trading.ics", "w") as f:
     f.writelines(c.serialize_iter())
